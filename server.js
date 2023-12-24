@@ -8,7 +8,7 @@ app.use(cors());
 app.use(express.json());
 
 const client = new Client({
-  connectionString: process.env.DATABASE_URL || 'postgresql://username:password@localhost:5432/yourdatabase',
+  connectionString: process.env.POSTGRES_URL || 'postgres://default:r8C7pEhdkMTl@ep-fragrant-mud-15070091.us-east-1.postgres.vercel-storage.com:5432/verceldb',
   ssl: {
     rejectUnauthorized: false, // For local development, you can set this to true for production
   },
