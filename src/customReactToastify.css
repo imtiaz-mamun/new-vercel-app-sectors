@@ -1,0 +1,11 @@
+.Toastify__close-button {
+  width: auto !important;
+}
+.Toastify__toast--info {
+  background: #0802A3;
+  color: #fff;
+}
+.Toastify__toast--success{
+  background: #005B41;
+  color: #fff;
+}
