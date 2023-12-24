@@ -1,5 +1,7 @@
 const express = require('express');
-const { Client } = require('pg');
+// const { Client } = require('pg');
+import { sql } from "@vercel/postgres";
+
 const cors = require('cors');
 
 const app = express();
@@ -161,13 +163,8 @@ app.get('/api/getAllData', (req, res) => {
 });
 
 app.get('/api/sectors', (req, res) => {
-  client.query('SELECT * FROM sectors', (err, result) => {
-    if (err) {
-      res.status(500).json({ error: err.message });
-      return;
-    }
-    res.json({ sectors: result.rows });
-  });
+  const { rows } = await sql`SELECT * FROM sectors;`;
+    res.json({ sectors: rows });
 });
 
 app.post('/api/updateFormData', (req, res) => {
